@@ -30,45 +30,16 @@ If you find any issues, they may be submitted to our [bug tracker](https://simp-
 
 ### What simp_ipa affects
 
-The ``simp_ipa`` module is quite minimal, like ``simp_ipa`` itself and simply installs
-the required packages and allows you to configure the most common files with
-safe defaults in place.
+The ``simp_ipa`` module is quite minimal at the moment, it can only join and
+remove hosts from an IPA domain.
 
 ## Usage
 
-The ``simp_ipa`` client is installed by default. To disable this, set
-``simp_ipa::client`` to ``false`` in Hiera.
+The ``simp_ipa`` class is a just a placeholder for now.
 
-To install and configure the ``simp_ipa`` server, set ``simp_ipa::server`` to ``true`` in Hiera.
-
-``simp_ipa`` requires a functioning window manager on the server to be useful and
-it does not perform well with compositing window managers, such as GNOME 3.
-
-See https://wiki.simp_ipa.org/doku.php/doc:de-compat for additional information.
-
-It is recommended that you use the SIMP [gnome module](https://github.com/simp/pupmod-simp-gnome)
-and set ``enable_mate`` to use the MATE window manager (or GNOME 2 if MATE is
-not available).
-
-**NOTE:** The ``simp_ipa`` server clipboard is set to ``server`` by default. This
-means that the client clipboard will not be exposed to the server to which you
-are connecting. This is done to prevent sensitive information from the client
-leaking onto the server by accident.
-
-You can change this by setting the following in Hiera:
-
-```yaml
----
-simp_ipa::server::agent_options:
-  '-clipboard': 'both'
-```
-
-Valid options include:
-
-  * ``both``   => Bi-directional clipboard
-  * ``server`` => Server side and Server to Client
-  * ``client`` => Client side and Client to Server
-  * ``none``   => Disable the clipboard
+``simp_ipa::client::install`` and related parameters will run ``ipa-client-install`` on systems if it needs it. You can either use discovery
+(provided you have DNS set up correctly) or manually set all the parameters
+required. See the reference material for further documentation.
 
 ## Development
 

@@ -236,40 +236,40 @@ pup5_latest-unit:
     PUPPET_VERSION: '~> 5.0'
 
 
-# ==============================================================================
-# Acceptance tests
+# # ==============================================================================
+# # Acceptance tests
+# #
 #
-
-# ----------------------------------------------------------------------
-# Puppet 4.8 for SIMP 6 (EOL: TBD) and PE 2016.5 (EOL: 2017-04)
-el-pup4_8-default:
-  <<: *acceptance_base
-  <<: *simp_6
-  script:
-    - 'bundle exec rake beaker:suites'
-
-el-pup4_8-default-fips:
-  <<: *acceptance_base
-  <<: *simp_6
-  variables:
-    BEAKER_fips: 'yes'
-  script:
-    - 'bundle exec rake beaker:suites'
-
-# ----------------------------------------------------------------------
-# Puppet 5.5 for PE 2018.1 LTS support (EOL: 2020-05)
-el-pup5_5-default:
-  <<: *acceptance_base
-  <<: *pe_2018_1
-  script:
-    - 'bundle exec rake beaker:suites'
-
-el-pup5_5-default-fips:
-  <<: *acceptance_base
-  <<: *pe_2018_1
-  variables:
-    BEAKER_fips: 'yes'
-  script:
-    - 'bundle exec rake beaker:suites'
+# # ----------------------------------------------------------------------
+# # Puppet 4.8 for SIMP 6 (EOL: TBD) and PE 2016.5 (EOL: 2017-04)
+# el-pup4_8-default:
+#   <<: *acceptance_base
+#   <<: *simp_6
+#   script:
+#     - 'bundle exec rake beaker:suites'
+#
+# el-pup4_8-default-fips:
+#   <<: *acceptance_base
+#   <<: *simp_6
+#   variables:
+#     BEAKER_fips: 'yes'
+#   script:
+#     - 'bundle exec rake beaker:suites'
+#
+# # ----------------------------------------------------------------------
+# # Puppet 5.5 for PE 2018.1 LTS support (EOL: 2020-05)
+# el-pup5_5-default:
+#   <<: *acceptance_base
+#   <<: *pe_2018_1
+#   script:
+#     - 'bundle exec rake beaker:suites'
+#
+# el-pup5_5-default-fips:
+#   <<: *acceptance_base
+#   <<: *pe_2018_1
+#   variables:
+#     BEAKER_fips: 'yes'
+#   script:
+#     - 'bundle exec rake beaker:suites'
 
 # vi:tabstop=2:shiftwidth=2:expandtab
