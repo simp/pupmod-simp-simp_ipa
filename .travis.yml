@@ -76,28 +76,26 @@ jobs:
       script:
         - bundle exec rake spec
 
-    # Uncomment the following for deployment tasks and set 'secure' in both
-    # sections appropriately
-#   - stage: deploy
-#     rvm: 2.4.1
-#     script:
-#       - true
-#     before_deploy:
-#       - "export PUPMOD_METADATA_VERSION=`ruby -r json -e \"puts JSON.parse(File.read('metadata.json')).fetch('version')\"`"
-#       - '[[ $TRAVIS_TAG =~ ^simp-${PUPMOD_METADATA_VERSION}$|^${PUPMOD_METADATA_VERSION}$ ]]'
-#     deploy:
-#       - provider: releases
-#         api_key:
-#           secure: ""
-#         skip_cleanup: true
-#         on:
-#           tags: true
-#           condition: '($SKIP_FORGE_PUBLISH != true)'
-#       - provider: puppetforge
-#         user: simp
-#         password:
-#           secure: ""
-#         on:
-#           tags: true
-#           rvm: 2.4.1
-#           condition: '($SKIP_FORGE_PUBLISH != true)'
+    - stage: deploy
+      rvm: 2.4.1
+      script:
+        - true
+      before_deploy:
+        - "export PUPMOD_METADATA_VERSION=`ruby -r json -e \"puts JSON.parse(File.read('metadata.json')).fetch('version')\"`"
+        - '[[ $TRAVIS_TAG =~ ^simp-${PUPMOD_METADATA_VERSION}$|^${PUPMOD_METADATA_VERSION}$ ]]'
+      deploy:
+        - provider: releases
+          api_key:
+            secure: #FIXME
+          skip_cleanup: true
+          on:
+            tags: true
+            condition: '($SKIP_FORGE_PUBLISH != true)'
+        - provider: puppetforge
+          user: simp
+          password:
+            secure: #FIXME
+          on:
+            tags: true
+            rvm: 2.4.1
+            condition: '($SKIP_FORGE_PUBLISH != true)'
