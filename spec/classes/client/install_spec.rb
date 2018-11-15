@@ -44,6 +44,8 @@ describe 'simp_ipa::client::install' do
             '--domain=ipa.example.local',
             '--realm=IPA.EXAMPLE.LOCAL',
             '--hostname=client.ipa.example.local',
+            '--ntp-server=192.168.1.1',
+            '--ntp-server=192.168.1.2',
           ].join(' ')
           it { is_expected.to create_exec('ipa-client-install install').with_command(expected) }
         end

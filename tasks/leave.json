@@ -1,0 +1,10 @@
+{
+  "description": "Leave an IPA domain",
+  "parameters": {
+    "options": {
+      "description": "Other command line options from `ipa-client-install`, specified as an arguments string",
+      "type": "Optional[String]"
+    }
+  },
+  "files": ["ruby_task_helper/files/task_helper.rb"]
+}
