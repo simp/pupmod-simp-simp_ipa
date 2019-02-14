@@ -14,6 +14,11 @@ _Private Classes_
 
 * `simp_ipa::client::packages`: Class to contain packages required for simp::simp_ipa::install
 
+**Tasks**
+
+* [`join`](#join): Join nodes to an IPA domain
+* [`leave`](#leave): Leave an IPA domain
+
 ## Classes
 
 ### simp_ipa
@@ -149,4 +154,76 @@ Data type: `Optional[Array[Simplib::Host]]`
 
 
 Default value: `undef`
+
+## Tasks
+
+### join
+
+Join nodes to an IPA domain
+
+**Supports noop?** false
+
+#### Parameters
+
+##### `server`
+
+Data type: `Simplib::Host`
+
+The IPA server to join to
+
+##### `hostname`
+
+Data type: `Optional[Simplib::Hostname]`
+
+The hostname of the node to be set
+
+##### `password`
+
+Data type: `Optional[String]`
+
+Password for authorization to the IPA server
+
+##### `principal`
+
+Data type: `Optional[String]`
+
+Kerberos principal for authorization
+
+##### `domain`
+
+Data type: `Optional[Simplib::Hostname]`
+
+IPA domain to join
+
+##### `realm`
+
+Data type: `Optional[String]`
+
+IPA kerberos realm to join
+
+##### `ip_address`
+
+Data type: `Optional[Array[Simplib::IP]]`
+
+IP address of the host, used in for creating DNS records in IPA
+
+##### `options`
+
+Data type: `Optional[String]`
+
+Other command line options from `ipa-client-install`, specified as an argument string. For example: `--verbose`
+
+### leave
+
+Leave an IPA domain
+
+**Supports noop?** false
+
+#### Parameters
+
+##### `options`
+
+Data type: `Optional[String]`
+
+Other command line options from `ipa-client-install`, specified as an arguments string. For example: `--verbose`
 

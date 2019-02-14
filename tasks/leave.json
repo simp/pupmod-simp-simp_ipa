@@ -2,7 +2,7 @@
   "description": "Leave an IPA domain",
   "parameters": {
     "options": {
-      "description": "Other command line options from `ipa-client-install`, specified as an arguments string",
+      "description": "Other command line options from `ipa-client-install`, specified as an arguments string. For example: `--verbose`",
       "type": "Optional[String]"
     }
   },

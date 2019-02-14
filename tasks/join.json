@@ -2,11 +2,11 @@
   "description": "Join nodes to an IPA domain",
   "parameters": {
     "server": {
-      "description": "IPA server",
+      "description": "The IPA server to join to",
       "type": "Simplib::Host"
     },
     "hostname": {
-      "description": "Set the hostname of the node",
+      "description": "The hostname of the node to be set",
       "type": "Optional[Simplib::Hostname]"
     },
     "password": {
@@ -30,7 +30,7 @@
       "type": "Optional[Array[Simplib::IP]]"
     },
     "options": {
-      "description": "Other command line options from `ipa-client-install`, specified as an argument string",
+      "description": "Other command line options from `ipa-client-install`, specified as an argument string. For example: `--verbose`",
       "type": "Optional[String]"
     }
   },
