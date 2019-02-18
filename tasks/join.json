@@ -1,0 +1,38 @@
+{
+  "description": "Join nodes to an IPA domain",
+  "parameters": {
+    "server": {
+      "description": "The IPA server to join to",
+      "type": "Simplib::Host"
+    },
+    "hostname": {
+      "description": "The hostname of the node to be set",
+      "type": "Optional[Simplib::Hostname]"
+    },
+    "password": {
+      "description": "Password for authorization to the IPA server",
+      "type": "Optional[String]"
+    },
+    "principal": {
+      "description": "Kerberos principal for authorization",
+      "type": "Optional[String]"
+    },
+    "domain": {
+      "description": "IPA domain to join",
+      "type": "Optional[Simplib::Hostname]"
+    },
+    "realm": {
+      "description": "IPA kerberos realm to join",
+      "type": "Optional[String]"
+    },
+    "ip_address": {
+      "description": "IP address of the host, used in for creating DNS records in IPA",
+      "type": "Optional[Array[Simplib::IP]]"
+    },
+    "options": {
+      "description": "Other command line options from `ipa-client-install`, specified as an argument string. For example: `--verbose`",
+      "type": "Optional[String]"
+    }
+  },
+  "files": ["ruby_task_helper/files/task_helper.rb"]
+}

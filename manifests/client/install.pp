@@ -94,6 +94,7 @@ class simp_ipa::client::install (
     'domain'     => $domain,
     'realm'      => $realm,
     'hostname'   => $hostname,
+    'ntp-server' => $ntp_server,
   }.delete_undef_values
 
   $_no_ac = $no_ac ? { true => { 'noac'  => undef }, default => {} }

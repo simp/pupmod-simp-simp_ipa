@@ -41,6 +41,26 @@ The ``simp_ipa`` class is a just a placeholder for now.
 (provided you have DNS set up correctly) or manually set all the parameters
 required. See the reference material for further documentation.
 
+### Tasks
+
+Join a domain using `ipa-client-install`:
+
+```shell
+bolt task run simp_ipa::join --nodes <nodes> server=ipa.example.com options='--verbose --mkhomedir'
+```
+
+Other options can be added to the `options` parameter, like
+`options='--mkhomedir --verbose'`.
+
+Leave a domain:
+
+```shell
+bolt task run simp_ipa::leave --nodes <nodes> domain=<domain> options='--verbose'
+```
+
+Tasks are also available from the [Puppet Enterprise console](https://puppet.com/docs/pe/2018.1/running_tasks.html).
+
+
 ## Development
 
 Please read our [Contribution Guide](http://simp-doc.readthedocs.io/en/stable/contributors_guide/index.html).
