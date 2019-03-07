@@ -1,3 +1,7 @@
+* Thu Mar 07 2019 Liz Nemsick <lnemsick.simp@gmail.com> - 0.0.2
+- Update the upper bound of stdlib to < 6.0.0
+- Update a URL in the README.md
+
 * Tue Feb 05 2019 Nick Miller <nick.miller@onyxpoint.com> - 0.0.2
 - Added Puppet Tasks for joining and leaving a domain
 - Fix bug where ntp-server wasn't passed in client install
