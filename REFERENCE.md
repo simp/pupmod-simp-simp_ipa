@@ -167,7 +167,7 @@ Join nodes to an IPA domain
 
 ##### `server`
 
-Data type: `Simplib::Host`
+Data type: `Optional[Simplib::Host]`
 
 The IPA server to join to
 
