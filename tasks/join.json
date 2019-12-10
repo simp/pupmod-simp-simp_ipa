@@ -3,7 +3,7 @@
   "parameters": {
     "server": {
       "description": "The IPA server to join to",
-      "type": "Simplib::Host"
+      "type": "Optional[Simplib::Host]"
     },
     "hostname": {
       "description": "The hostname of the node to be set",
