@@ -1,3 +1,9 @@
+* Tue Dec 10 2019 Trevor Vaughan <tvaughan@onyxpoint.com> - 0.1.0
+- Add support for EL8
+
+* Tue Dec 10 2019 Alexander Fisher <alex@infratech.co.uk> - 0.1.0
+- Make IPA server optional in join task
+
 * Fri Aug 02 2019 Robert Vincent <pillarsdotnet@gmail.com> - 0.1.0
 - Drop Puppet 4 support
 - Add Puppet 6 support

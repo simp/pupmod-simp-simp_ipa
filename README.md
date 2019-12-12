@@ -7,17 +7,27 @@
 
 #### Table of Contents
 
+<!-- vim-markdown-toc GFM -->
+
 * [Description](#description)
+* [Reference](#reference)
   * [This is a SIMP module](#this-is-a-simp-module)
 * [Setup](#setup)
   * [What simp_ipa affects](#what-simp_ipa-affects)
 * [Usage](#usage)
+  * [Tasks](#tasks)
 * [Development](#development)
   * [Acceptance tests](#acceptance-tests)
+
+<!-- vim-markdown-toc -->
 
 ## Description
 
 This is a module for managing ``simp_ipa`` server and client installations.
+
+## Reference
+
+See [REFERENCE.md](./REFERENCE.md) for the full module reference.
 
 ### This is a SIMP module
 
