@@ -55,8 +55,7 @@
 #   Ensure attribute of the package resource managing the ``ipa-client`` package
 #
 # @param admin_tools_ensure
-#   Ensure attribute of the package resource managing the ``ipa-admintools``
-#   package. Only applicable on EL6.
+#   *Deprecated*: Was only applicable on EL6.
 #
 class simp_ipa::client::install (
   Enum['present','absent']           $ensure,
