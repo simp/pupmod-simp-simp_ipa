@@ -17,9 +17,6 @@ describe 'simp_ipa::client::install' do
           it { is_expected.to create_package('ipa-client') }
           it { is_expected.to create_exec('ipa-client-install install') \
             .with_command('ipa-client-install --unattended --noac') }
-          if os_facts[:os][:release][:major].to_i < 7
-            it { is_expected.to create_package('ipa-admintools') }
-          end
         end
 
         context 'with all explicit parameters' do
