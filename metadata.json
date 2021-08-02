@@ -1,6 +1,6 @@
 {
   "name": "simp-simp_ipa",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "simp",
   "summary": "Puppet module for managing simp_ipa server and client",
   "license": "Apache-2.0",
@@ -28,22 +28,19 @@
     {
       "operatingsystem": "CentOS",
       "operatingsystemrelease": [
-        "7",
-        "8"
+        "7"
       ]
     },
     {
       "operatingsystem": "RedHat",
       "operatingsystemrelease": [
-        "7",
-        "8"
+        "7"
       ]
     },
     {
       "operatingsystem": "OracleLinux",
       "operatingsystemrelease": [
-        "7",
-        "8"
+        "7"
       ]
     }
   ],
