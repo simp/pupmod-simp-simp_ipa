@@ -1,6 +1,6 @@
 {
   "name": "simp-simp_ipa",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "author": "simp",
   "summary": "Puppet module for managing simp_ipa server and client",
   "license": "Apache-2.0",
@@ -17,7 +17,7 @@
     },
     {
       "name": "puppetlabs/stdlib",
-      "version_requirement": ">= 6.6.0 < 8.0.0"
+      "version_requirement": ">= 8.0.0 < 9.0.0"
     },
     {
       "name": "puppetlabs-ruby_task_helper",
@@ -41,6 +41,12 @@
       "operatingsystem": "OracleLinux",
       "operatingsystemrelease": [
         "7"
+      ]
+    },
+    {
+      "operatingsystem": "Rocky",
+      "operatingsystemrelease": [
+        "8"
       ]
     }
   ],
