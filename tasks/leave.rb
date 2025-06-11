@@ -1,27 +1,28 @@
 #!/opt/puppetlabs/puppet/bin/ruby
 
 require 'open3'
-require_relative "../../ruby_task_helper/files/task_helper.rb"
+require_relative '../../ruby_task_helper/files/task_helper.rb'
 
+# Task helper for leaving an IPA domain
 class IpaLeave < TaskHelper
   def task(
     options: nil,
-    **kwargs
+    **_kwargs
   )
 
-  # interact with the system
-  stdout, stderr, status = Open3.capture3("ipa-client-install --unattended --uninstall #{options}")
-  raise "Failed to join domain #{stderr}" unless status.success?
+    # interact with the system
+    stdout, stderr, status = Open3.capture3("ipa-client-install --unattended --uninstall #{options}")
+    raise "Failed to join domain #{stderr}" unless status.success?
 
-  # provide output
-  {
-    stdout: stdout,
-    stderr: stderr,
-    status: status
-  }
+    # provide output
+    {
+      stdout: stdout,
+      stderr: stderr,
+      status: status
+    }
   end
 end
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
   IpaLeave.run
 end
