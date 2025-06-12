@@ -14,7 +14,7 @@ class IpaJoin < TaskHelper
     realm:      nil,
     ip_address: nil,
     options:    nil,
-    **_kwargs
+    **_kwargs,
   )
 
     opts = {
@@ -35,7 +35,7 @@ class IpaJoin < TaskHelper
     {
       stdout: stdout,
       stderr: stderr,
-      status: status
+      status: status,
     }
   end
 end

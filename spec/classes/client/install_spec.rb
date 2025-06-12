@@ -11,7 +11,7 @@ describe 'simp_ipa::client::install' do
         context 'with minimal parameters' do
           let(:params) do
             {
-              ensure: 'present'
+              ensure: 'present',
             }
           end
 
@@ -19,7 +19,7 @@ describe 'simp_ipa::client::install' do
           it { is_expected.to create_class('simp_ipa::client::install') }
           it { is_expected.to create_package('ipa-client') }
           it {
-            is_expected.to create_exec('ipa-client-install install') \
+            is_expected.to create_exec('ipa-client-install install')
               .with_command('ipa-client-install --unattended --noac')
           }
         end
@@ -28,14 +28,14 @@ describe 'simp_ipa::client::install' do
           let(:params) do
             {
               ensure: 'present',
-           password: 'password',
-           principal: 'admin',
-           server: ['ipa.ipa.example.local', 'ipa2.ipa.example.local'],
-           ntp_server: ['192.168.1.1', '192.168.1.2'],
-           domain: 'ipa.example.local',
-           realm: 'IPA.EXAMPLE.LOCAL',
-           hostname: 'client.ipa.example.local',
-           no_ac: false,
+              password: 'password',
+              principal: 'admin',
+              server: ['ipa.ipa.example.local', 'ipa2.ipa.example.local'],
+              ntp_server: ['192.168.1.1', '192.168.1.2'],
+              domain: 'ipa.example.local',
+              realm: 'IPA.EXAMPLE.LOCAL',
+              hostname: 'client.ipa.example.local',
+              no_ac: false,
             }
           end
 
@@ -60,15 +60,15 @@ describe 'simp_ipa::client::install' do
         let(:params) do
           {
             ensure: 'present',
-         domain: 'testipa.example.local'
+            domain: 'testipa.example.local',
           }
         end
         let(:facts) do
           super().merge(
-          ipa: {
-            domain: 'testipa.example.local'
-          },
-        )
+            ipa: {
+              domain: 'testipa.example.local',
+            },
+          )
         end
 
         it { is_expected.to compile.with_all_deps }
@@ -77,10 +77,10 @@ describe 'simp_ipa::client::install' do
         context 'but it has the wrong domain' do
           let(:facts) do
             super().merge(
-            ipa: {
-              domain: 'ipa.example.local'
-            },
-          )
+              ipa: {
+                domain: 'ipa.example.local',
+              },
+            )
           end
 
           it { is_expected.to compile.and_raise_error(%r{This host is already a member of domain}) }
@@ -91,14 +91,14 @@ describe 'simp_ipa::client::install' do
         let(:params) do
           {
             ensure: 'present',
-         password: 'password',
-         server: ['ipa.domain.example.local'],
-         domain: 'domain.example.local',
-         realm: 'DOMAIN.EXAMPLE.LOCAL',
-         install_options: {
-           mkhomedir: :undef,
-           keytab: '/etc/krb5.keytab'
-         }
+            password: 'password',
+            server: ['ipa.domain.example.local'],
+            domain: 'domain.example.local',
+            realm: 'DOMAIN.EXAMPLE.LOCAL',
+            install_options: {
+              mkhomedir: :undef,
+              keytab: '/etc/krb5.keytab',
+            },
           }
         end
 
@@ -121,7 +121,7 @@ describe 'simp_ipa::client::install' do
       context 'with ensure => absent' do
         let(:params) do
           {
-            ensure: 'absent'
+            ensure: 'absent',
           }
         end
 
@@ -129,7 +129,7 @@ describe 'simp_ipa::client::install' do
         it { is_expected.to create_package('ipa-client') }
         it { is_expected.not_to create_exec('ipa-client-install install') }
         it {
-          is_expected.to create_exec('ipa-client-install uninstall') \
+          is_expected.to create_exec('ipa-client-install uninstall')
             .with_command('ipa-client-install --unattended --uninstall')
         }
         it { is_expected.to create_reboot_notify('ipa-client-unstall uninstall') }
