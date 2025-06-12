@@ -7,7 +7,7 @@ require_relative '../../ruby_task_helper/files/task_helper.rb'
 class IpaLeave < TaskHelper
   def task(
     options: nil,
-    **_kwargs,
+    **_kwargs
   )
 
     # interact with the system

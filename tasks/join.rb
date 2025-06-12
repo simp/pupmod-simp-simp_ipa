@@ -14,7 +14,7 @@ class IpaJoin < TaskHelper
     realm:      nil,
     ip_address: nil,
     options:    nil,
-    **_kwargs,
+    **_kwargs
   )
 
     opts = {
