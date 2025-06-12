@@ -9,28 +9,36 @@ describe 'simp_ipa::client::install' do
 
       context 'with ensure => present and $facts[ipa] absent' do
         context 'with minimal parameters' do
-          let(:params) {{
-            ensure: 'present'
-          }}
+          let(:params) do
+            {
+              ensure: 'present',
+            }
+          end
+
           it { is_expected.to compile.with_all_deps }
           it { is_expected.to create_class('simp_ipa::client::install') }
           it { is_expected.to create_package('ipa-client') }
-          it { is_expected.to create_exec('ipa-client-install install') \
-            .with_command('ipa-client-install --unattended --noac') }
+          it {
+            is_expected.to create_exec('ipa-client-install install')
+              .with_command('ipa-client-install --unattended --noac')
+          }
         end
 
         context 'with all explicit parameters' do
-          let(:params) {{
-            ensure: 'present',
-            password: 'password',
-            principal: 'admin',
-            server: ['ipa.ipa.example.local','ipa2.ipa.example.local'],
-            ntp_server: ['192.168.1.1','192.168.1.2'],
-            domain: 'ipa.example.local',
-            realm: 'IPA.EXAMPLE.LOCAL',
-            hostname: 'client.ipa.example.local',
-            no_ac: false,
-          }}
+          let(:params) do
+            {
+              ensure: 'present',
+              password: 'password',
+              principal: 'admin',
+              server: ['ipa.ipa.example.local', 'ipa2.ipa.example.local'],
+              ntp_server: ['192.168.1.1', '192.168.1.2'],
+              domain: 'ipa.example.local',
+              realm: 'IPA.EXAMPLE.LOCAL',
+              hostname: 'client.ipa.example.local',
+              no_ac: false,
+            }
+          end
+
           it { is_expected.to compile.with_all_deps }
           expected = [
             'ipa-client-install --unattended',
@@ -49,41 +57,51 @@ describe 'simp_ipa::client::install' do
       end
 
       context 'with ensure => present and $facts[ipa] present' do
-        let(:params) {{
-          ensure: 'present',
-          domain: 'testipa.example.local'
-        }}
-        let(:facts) { super().merge(
-          ipa: {
-            domain: 'testipa.example.local'
+        let(:params) do
+          {
+            ensure: 'present',
+            domain: 'testipa.example.local',
           }
-        )}
+        end
+        let(:facts) do
+          super().merge(
+            ipa: {
+              domain: 'testipa.example.local',
+            },
+          )
+        end
 
         it { is_expected.to compile.with_all_deps }
         it { is_expected.not_to create_exec('ipa-client-install install') }
 
         context 'but it has the wrong domain' do
-          let(:facts) { super().merge(
-            ipa: {
-              domain: 'ipa.example.local'
-            }
-          )}
-          it { is_expected.to compile.and_raise_error(/This host is already a member of domain/) }
+          let(:facts) do
+            super().merge(
+              ipa: {
+                domain: 'ipa.example.local',
+              },
+            )
+          end
+
+          it { is_expected.to compile.and_raise_error(%r{This host is already a member of domain}) }
         end
       end
 
       context 'with parameters from a hash' do
-        let(:params) {{
-          ensure: 'present',
-          password: 'password',
-          server: ['ipa.domain.example.local'],
-          domain: 'domain.example.local',
-          realm: 'DOMAIN.EXAMPLE.LOCAL',
-          install_options: {
-            mkhomedir: :undef,
-            keytab: '/etc/krb5.keytab'
+        let(:params) do
+          {
+            ensure: 'present',
+            password: 'password',
+            server: ['ipa.domain.example.local'],
+            domain: 'domain.example.local',
+            realm: 'DOMAIN.EXAMPLE.LOCAL',
+            install_options: {
+              mkhomedir: :undef,
+              keytab: '/etc/krb5.keytab',
+            },
           }
-        }}
+        end
+
         it { is_expected.to compile.with_all_deps }
         it { is_expected.to create_class('simp_ipa::client::install') }
         it { is_expected.to create_package('ipa-client') }
@@ -101,14 +119,19 @@ describe 'simp_ipa::client::install' do
       end
 
       context 'with ensure => absent' do
-        let(:params) {{
-          ensure: 'absent'
-        }}
+        let(:params) do
+          {
+            ensure: 'absent',
+          }
+        end
+
         it { is_expected.to compile.with_all_deps }
         it { is_expected.to create_package('ipa-client') }
         it { is_expected.not_to create_exec('ipa-client-install install') }
-        it { is_expected.to create_exec('ipa-client-install uninstall') \
-          .with_command('ipa-client-install --unattended --uninstall') }
+        it {
+          is_expected.to create_exec('ipa-client-install uninstall')
+            .with_command('ipa-client-install --unattended --uninstall')
+        }
         it { is_expected.to create_reboot_notify('ipa-client-unstall uninstall') }
       end
     end
