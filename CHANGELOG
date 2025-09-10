@@ -1,3 +1,7 @@
+* Wed Sep 10 2025 Steven Pritchard <steve@sicura.us> - 0.4.2
+- Update gem dependencies
+- Minor fixes for rubocop
+
 * Tue Jun 10 2025 Chris Tessmer <chris.tessmer@onyxpoint.com> - 0.4.1
 - - Fix rubocop issues
 

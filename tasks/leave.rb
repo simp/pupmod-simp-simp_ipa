@@ -9,7 +9,6 @@ class IpaLeave < TaskHelper
     options: nil,
     **_kwargs
   )
-
     # interact with the system
     stdout, stderr, status = Open3.capture3("ipa-client-install --unattended --uninstall #{options}")
     raise "Failed to join domain #{stderr}" unless status.success?

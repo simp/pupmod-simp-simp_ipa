@@ -1,6 +1,6 @@
 {
   "name": "simp-simp_ipa",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "author": "simp",
   "summary": "Puppet module for managing simp_ipa server and client",
   "license": "Apache-2.0",
