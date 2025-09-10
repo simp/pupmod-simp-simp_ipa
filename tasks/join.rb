@@ -16,7 +16,6 @@ class IpaJoin < TaskHelper
     options:    nil,
     **_kwargs
   )
-
     opts = {
       'password'   => password,
       'principal'  => principal,
